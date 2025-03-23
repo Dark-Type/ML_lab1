@@ -20,19 +20,6 @@ var/
 .installed.cfg
 *.egg
 
-
-# Data files
-*.csv
-*.tsv
-*.json
-*.pkl
-
-# Model artifacts
-model/*.pkl
-
-# Logs
-*.log
-
 # Virtual environments
 venv/
 env/
@@ -42,3 +29,34 @@ ENV/
 .idea/
 .vscode/
 *.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large data files (only exclude the raw data, keep processed data)
+data/raw/*.csv
+data/raw/*.tsv
+data/raw/*.json
+
+# Keep important data files
+!data/processed/*.csv
+!data/processed/*.json
+!data/test.csv
+!data/train.csv
+!data/results.csv
+
+# Model artifacts - exclude temporary files but keep final models
+model/tmp/*.pkl
+model/cache/*.pkl
+model/checkpoint/*.pkl
+# Keep final models
+!model/*.pkl
+
+# Logs
+logs/*.log
+# Keep main log file
+!data/log_file.log
+
+# System files
+.DS_Store
+Thumbs.db
